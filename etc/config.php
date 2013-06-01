@@ -7,6 +7,7 @@ define ( 'BIN', 'bin' );
 define ( 'HOME', 'home' );
 define ( 'VIEW', 'views' );
 define ( 'PAGE', 'pages' );
+define ( 'CACHE', 'cache' );
 
 function __autoload( $package ) {
 	include BIN.DS.$package.DS.$package.'_model.php';

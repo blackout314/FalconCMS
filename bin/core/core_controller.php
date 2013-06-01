@@ -7,6 +7,8 @@ class core extends coreModel {
 	public function __construct( )
 	{
 		$this->_package = 'core';
+		parent::__construct();
+
 		// microtime
 		//
 		$this->_MICRO	= microtime(true);
@@ -15,23 +17,25 @@ class core extends coreModel {
 			if( is_dir( BIN.DS.$package )==true && $package!='.' && $package!='..' && $package!='core' ):
 				$this->_packageCount[] = $package;
 				$p	= new $package();
-				$this->_OUTPUT[$package] = $p->__tostring();
+				$p->__tostring();
 			endif;
 		endforeach;
 
-		$argv	= split('/',$_REQUEST['p']);
-		if( count($argv) > 2 ):	
-			$package = new $argv[0]();
-			$package->$argv[1]( $argv[2] );
-		endif;
-
-		foreach( $this->_OUTPUT as $p=>$o )
-			echo	'p:'.$p.' >'.$o.'<br>';
+		if( isset($_GET['p']) ) {
+			$argv	= explode('/',$_GET['p']);
+			if( count($argv) > 2 ):	
+				$package = new $argv[0]();
+				$package->$argv[1]( $argv[2] );
+			endif;
+		}
 
 		// microtime
 		//
 		$this->_MICRO = microtime(true) - $this->_MICRO;
-		parent::__getView( 'micro' );
+
+		parent::__construct();
+		$this->_tplManager->assign( 'micro', $this->_MICRO );
+		$this->_tplManager->draw( 'micro' );
 	}
 }
 ?>
