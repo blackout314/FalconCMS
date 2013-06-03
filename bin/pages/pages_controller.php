@@ -2,7 +2,7 @@
 class pages extends pagesModel {
 	public $_PAGES;
 
-	public function __construct( )
+	public function __construct( $conf )
 	{
 		$this->_package = 'pages';
 		parent::__construct();
@@ -12,7 +12,7 @@ class pages extends pagesModel {
 			if( 	is_file( ETC.DS.PAGE.DS.$page)==true && 
 				$lang[0]==LANG
 			):
-				$this->_PAGES[]	= array( 'page' => array( 'l'=>$lang[1], 'f'=>'page/display'.DS.$page) );
+				$this->_PAGES[]	= array( 'page' => array( 'l'=>$lang[1], 'f'=>DS.$conf['path'].DS.LANG.'/page/display'.DS.$page) );
 			endif;
 		endforeach;
 	}

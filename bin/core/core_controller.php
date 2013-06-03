@@ -18,7 +18,7 @@ class core extends coreModel {
 		foreach( scandir(BIN) as $package ):
 			if( is_dir( BIN.DS.$package )==true && $package!='.' && $package!='..' && $package!='core' ):
 				$this->_packageCount[] = $package;
-				$p	= new $package();
+				$p	= new $package( $conf );
 				$p->__tostring();
 			endif;
 		endforeach;

@@ -20,14 +20,36 @@
 		margin:auto; margin-top:50px;
 	}
 	#page { border:1px #ccc dotted; padding:10px; }
-	#pages { border:1px #333 dotted; padding:10px; }
+	#pages { 
+		border:1px #333 dotted; padding:10px; 
+	}
+	#pages ul {
+		margin:0px; padding:0px;
+	}
+	#pages ul li {
+		list-style: none;
+		display: inline-block;
+		width:100px;
+		text-align:center;
+		border:1px #333 dotted;
+	}
+	#pages ul li a {
+		color:black;
+		text-decoration:none;
+	}
+	#pages ul li a:hover {
+		color: blue;
+	}
 	#micro { 
 		position:absolute; bottom:0px; margin:auto; 
 		border:1px #333 dashed;
 		padding-left:20px; padding-right:20px;
 	}
 	#langs {
-		position:absolute; top:0px;
+		position:relative;
+		top:0px;
+		right:-800px;
+		width:100px;
 	}
 	#langs ul li {
 		list-style: none;
