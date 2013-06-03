@@ -52,6 +52,9 @@ class core extends coreModel {
 			$this->_tplManager->assign( 'keywords', KEYS );
 			$this->_tplManager->assign( 'lang', LANG );
 			break;
+			case 'footer':
+			$this->_tplManager->assign( 'footer', FOOTER );
+			break;
 		}
 		raintpl::$tpl_dir = TPL.DS.$template.DS;
 		$this->_tplManager->draw( $how );
