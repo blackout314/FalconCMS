@@ -10,7 +10,7 @@ include 'etc/config.php';	// main config
 include 'user.config.php';	// user config
 include 'lib/template/raintpl/rain.tpl.class.php';
 
-$init	= new core();
+$init	= new core( $template );
 
 //--EOF
 ?>

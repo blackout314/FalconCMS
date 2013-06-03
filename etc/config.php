@@ -8,6 +8,7 @@ define ( 'HOME', 'home' );
 define ( 'VIEW', 'views' );
 define ( 'PAGE', 'pages' );
 define ( 'CACHE', 'cache' );
+define ( 'TPL', 'templates' );
 
 function __autoload( $package ) {
 	include BIN.DS.$package.DS.$package.'_model.php';

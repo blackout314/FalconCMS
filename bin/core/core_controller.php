@@ -4,10 +4,12 @@
  * CORE - CONTROLLER
  */
 class core extends coreModel {
-	public function __construct( )
+	public function __construct( $template )
 	{
 		$this->_package = 'core';
 		parent::__construct();
+
+		$this->__printTpl( 'header', $template );
 
 		// microtime
 		//
@@ -36,6 +38,22 @@ class core extends coreModel {
 		parent::__construct();
 		$this->_tplManager->assign( 'micro', $this->_MICRO );
 		$this->_tplManager->draw( 'micro' );
+
+		$this->__printTpl( 'footer', $template );
+	}
+	private function __printTpl( $how, $template ) {
+		$temp 			= raintpl::$tpl_dir;
+		switch( $how ) {
+			case 'header':
+			$this->_tplManager->assign( 'title', TITLE );
+			$this->_tplManager->assign( 'descr', DESCR );
+			$this->_tplManager->assign( 'keywords', KEYS );
+			$this->_tplManager->assign( 'lang', LANG );
+			break;
+		}
+		raintpl::$tpl_dir = TPL.DS.$template.DS;
+		$this->_tplManager->draw( $how );
+		raintpl::$tpl_dir	= $temp;
 	}
 }
 ?>
