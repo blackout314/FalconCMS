@@ -12,7 +12,7 @@ class pages extends pagesModel {
 			if( 	is_file( ETC.DS.PAGE.DS.$page)==true && 
 				$lang[0]==LANG
 			):
-				$this->_PAGES[]	= array( 'page' => array( 'l'=>$lang[1], 'f'=>$page) );
+				$this->_PAGES[]	= array( 'page' => array( 'l'=>$lang[1], 'f'=>'page/display'.DS.$page) );
 			endif;
 		endforeach;
 	}

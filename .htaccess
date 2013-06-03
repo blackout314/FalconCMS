@@ -1,0 +1,5 @@
+RewriteEngine On
+
+RewriteRule ^([a-z]+)\/([a-zA-Z0-9_\/\.]+)$ index.php?l=$1&p=$2 [L]
+RewriteRule ^([a-z]+)\/$ index.php?l=$1 [L]
+RewriteRule ^([a-z]+)$ index.php?l=$1 [L]
