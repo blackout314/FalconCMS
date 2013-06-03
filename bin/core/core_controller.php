@@ -36,7 +36,6 @@ class core extends coreModel {
 		$this->_MICRO = microtime(true) - $this->_MICRO;
 
 		parent::__construct();
-		$this->_tplManager->assign( 'micro', $this->_MICRO );
 		$this->_tplManager->assign( 'langs', $languages );
 		$this->_tplManager->assign( 'path', $conf['path'] );
 		$this->_tplManager->draw( 'micro' );
@@ -51,9 +50,10 @@ class core extends coreModel {
 			$this->_tplManager->assign( 'descr', DESCR );
 			$this->_tplManager->assign( 'keywords', KEYS );
 			$this->_tplManager->assign( 'lang', LANG );
+			$this->_tplManager->assign( 'urlpath', URL );
 			break;
 			case 'footer':
-			$this->_tplManager->assign( 'footer', FOOTER );
+			$this->_tplManager->assign( 'footer', FOOTER . ' - s ' .number_format($this->_MICRO,4) );
 			break;
 		}
 		raintpl::$tpl_dir = TPL.DS.$template.DS;

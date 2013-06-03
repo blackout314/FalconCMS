@@ -13,6 +13,11 @@
 		font: 12px Helvetica, Arial; 
 		background:#f1f1f1;
 	}
+	#content {
+		box-shadow: 0px 0px 5px #777;
+		width:900px;
+		margin:auto;
+	}
 	#main {
 		width:900px;
 		min-height:400px;
@@ -23,7 +28,7 @@
 		width:900px;
 		min-height:30px;
 		background:white;
-		border-top:1px #777 solid;
+		border-top:1px #777 dotted;
 		margin:auto;
 		padding-top:10px;
 		text-align:center;
@@ -31,10 +36,15 @@
 		color: #777
 	}
 	#page { 
-		border:1px #ccc dotted; padding:10px; 
+		padding:10px; 
 	}
 	#header {
 		height:120px; background: #87e0fd;
+		cursor:pointer;cursor:hand;
+	}
+	#header #title {
+		padding:20px;
+		font-size:33px;
 	}
 	#pages { 
 		background: linear-gradient(to bottom, #87e0fd 0%, #53cbf1 40%, #05abe0 100%);
@@ -82,6 +92,9 @@
 </style>
 </head>
 <body lang="{$lang}">
+<div id="content">
 <div id="main">
-	<div id="header"></div>
+	<div id="header" onclick="window.location='{$urlpath}';">
+		<div id="title">{$title}</div>
+	</div>
 

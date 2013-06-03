@@ -1,5 +1,15 @@
 <?php
-
+//
+// default template
+//
+$template = 'default';
+//
+// default language
+//
+$language = 'it';
+//
+// all languages set
+//
 $languages = array(
 	'it',
 	'en'
@@ -10,8 +20,8 @@ define( KEYS, 'key,key' );
 define( DESCR, 'descr bla bla yatta yatta' );
 define( FOOTER, 'footer &copy; bla bla yatta' );
 
-$template = 'default';
-$language = 'it';
+define( URL, 'http://localhost/falcon20/'.$language );
+
 
 
 ?>

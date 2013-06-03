@@ -12,7 +12,7 @@ include 'user.config.php';	// user config
 include 'etc/config.php';	// main config
 include 'lib/template/raintpl/rain.tpl.class.php';
 
-$init	= new core( $template, $languages, array('path'=>'FalconCMS') );
+$init	= new core( $template, $languages, array('path'=>'falcon20') );
 
 //--EOF
 ?>
