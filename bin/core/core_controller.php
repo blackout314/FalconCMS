@@ -4,7 +4,7 @@
  * CORE - CONTROLLER
  */
 class core extends coreModel {
-	public function __construct( $template )
+	public function __construct( $template, $languages, $conf )
 	{
 		$this->_package = 'core';
 		parent::__construct();
@@ -37,6 +37,8 @@ class core extends coreModel {
 
 		parent::__construct();
 		$this->_tplManager->assign( 'micro', $this->_MICRO );
+		$this->_tplManager->assign( 'langs', $languages );
+		$this->_tplManager->assign( 'path', $conf['path'] );
 		$this->_tplManager->draw( 'micro' );
 
 		$this->__printTpl( 'footer', $template );
