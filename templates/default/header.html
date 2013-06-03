@@ -3,11 +3,22 @@
 <head>
 	<meta charset="utf-8"/>
 	<title>{$title}</title>
+	<meta name="viewport" content"width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="description" content="{$descr}" />
 	<meta name="keywords" content="{$keywords}" />
 	<meta name="author" content="carlo denaro aka blackout" />
 <style>
-	body { margin:0px; padding:px; font: 12px Helvetica, Arial; }
+	body { 
+		margin:0px; padding:px; 
+		font: 12px Helvetica, Arial; 
+		background:#f1f1f1;
+	}
+	#main {
+		width:900px;
+		min-height:400px;
+		background:white;
+		margin:auto; margin-top:50px;
+	}
 	#page { border:1px #ccc dotted; padding:10px; }
 	#pages { border:1px #333 dotted; padding:10px; }
 	#micro { 
@@ -15,7 +26,22 @@
 		border:1px #333 dashed;
 		padding-left:20px; padding-right:20px;
 	}
+	#langs {
+		position:absolute; top:0px;
+	}
+	#langs ul li {
+		list-style: none;
+		display: inline-block;
+		width:20px;
+		text-align:center;
+		background: #333;
+	}
+	#langs ul li a {
+		color:white;
+		text-decoration:none;
+	}
 </style>
 </head>
 <body lang="{$lang}">
+<div id="main">
 
