@@ -8,22 +8,18 @@ class pages extends pagesModel {
 		parent::__construct();
 
 		foreach( scandir(ETC.DS.PAGE) as $page ):
-			if( is_file( ETC.DS.PAGE.DS.$page)==true ):
-				$this->_PAGES[]	= array( 'page' => $page );
+			$lang = explode('.',$page);
+			if( 	is_file( ETC.DS.PAGE.DS.$page)==true && 
+				$lang[0]==LANG
+			):
+				$this->_PAGES[]	= array( 'page' => array( 'l'=>$lang[1], 'f'=>$page) );
 			endif;
 		endforeach;
 	}
 	public function __tostring( )
 	{
-		foreach( $this->_PAGES as $n=>$p ) {
-			$this->_OUTPUT[] = $p;
-		}
-		$this->_tplManager->assign( 'pages', $this->_OUTPUT );
+		$this->_tplManager->assign( 'pages', $this->_PAGES );
 		$this->_tplManager->draw( 'pages' );
-	}
-	public function display( $var )
-	{
-		echo '['.$var.']<br>';
 	}
 }
 ?>
