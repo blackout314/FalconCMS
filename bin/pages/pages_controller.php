@@ -9,10 +9,11 @@ class pages extends pagesModel {
 
 		foreach( scandir(ETC.DS.PAGE) as $page ):
 			$lang = explode('.',$page);
+			$title= explode('_',$lang[1]);
 			if( 	is_file( ETC.DS.PAGE.DS.$page)==true && 
 				$lang[0]==LANG
 			):
-				$this->_PAGES[]	= array( 'page' => array( 'l'=>$lang[1], 'f'=>DS.$conf['path'].DS.LANG.'/page/display'.DS.$page) );
+				$this->_PAGES[]	= array( 'page' => array( 'l'=>$title[1], 'f'=>DS.$conf['path'].DS.LANG.'/page/display'.DS.$page) );
 			endif;
 		endforeach;
 	}

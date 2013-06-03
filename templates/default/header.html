@@ -19,9 +19,15 @@
 		background:white;
 		margin:auto; margin-top:50px;
 	}
-	#page { border:1px #ccc dotted; padding:10px; }
+	#page { 
+		border:1px #ccc dotted; padding:10px; 
+	}
+	#header {
+		height:120px; background: #87e0fd;
+	}
 	#pages { 
-		border:1px #333 dotted; padding:10px; 
+		background: linear-gradient(to bottom, #87e0fd 0%, #53cbf1 40%, #05abe0 100%);
+		padding:10px; 
 	}
 	#pages ul {
 		margin:0px; padding:0px;
@@ -46,9 +52,9 @@
 		padding-left:20px; padding-right:20px;
 	}
 	#langs {
-		position:relative;
+		position:absolute;
 		top:0px;
-		right:-800px;
+		right:0px;
 		width:100px;
 	}
 	#langs ul li {
@@ -66,4 +72,5 @@
 </head>
 <body lang="{$lang}">
 <div id="main">
+	<div id="header"></div>
 
