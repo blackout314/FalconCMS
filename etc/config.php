@@ -15,4 +15,14 @@ function __autoload( $package ) {
 	include BIN.DS.$package.DS.$package.'_controller.php';
 }
 
+
+if( !$_SESSION['l']) {
+	$_SESSION['l'] = $language;
+}
+if( $_GET['l'] ) {
+	$_SESSION['l'] = $_GET['l'];
+}
+
+define( LANG, $_SESSION['l'] );
+
 ?>
