@@ -14,7 +14,7 @@ class page extends pageModel {
 	{
 		$this->_PAGE = '';
 		if( is_file( ETC.DS.PAGE.DS.$var)==true ) {
-			$this->_PAGE = file_get_contents( ETC.DS.PAGE.DS.$var );
+			$this->_PAGE = Parsedown::instance()->parse( file_get_contents(ETC.DS.PAGE.DS.$var) );
 		}
 		$this->_tplManager->assign( 'page', $this->_PAGE );
 		$this->_tplManager->draw( 'singlepage' );
