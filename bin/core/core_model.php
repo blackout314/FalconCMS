@@ -8,12 +8,14 @@ class coreMain {
 	protected 	$_package;
 	public 		$_attributes;
 	public 		$_tplManager;
-	public function __construct() {
+	public 		$_languages;
+	public function __construct( ) 
+	{
 		$this->_tplManager = new raintpl();
 		raintpl::$tpl_dir = BIN.DS.$this->__getName().DS.VIEW.DS;
 		raintpl::$cache_dir = CACHE.DS;
 	}
-	public function __getView( $a ) 
+	public function __getView ($a) 
 	{
 		if( is_file(BIN.DS.$this->_package.DS.VIEW.DS.$a.'.php')==true )
 		{
@@ -32,8 +34,17 @@ class coreMain {
 		}
 		return $this->_attributes;
 	}
-	public function __getName() {
+	public function __getName() 
+	{
 		return ( $this->_package );
+	}
+	public function __getLanguages () 
+	{
+		return $this->_languages;
+	}
+	public function __setLanguages ($l) 
+	{
+		$this->_languages = $l;
 	}
 }
 

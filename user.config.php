@@ -11,8 +11,8 @@ $language = 'it';
 // all languages set
 //
 $languages = array(
-	'it',
-	'en'
+	'it'=>array('l'=>'it','u'=>'it'),
+	'en'=>array('l'=>'en','u'=>'en'),
 );
 
 define( TITLE, 'title demo' );

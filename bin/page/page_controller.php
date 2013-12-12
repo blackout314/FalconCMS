@@ -1,10 +1,9 @@
 <?php
 
 class page extends pageModel {
-	public function __construct( ) {
+	public function __construct () {
 		$this->_package = 'page';
-		parent::__construct();
-
+		parent::__construct ();
 		$this->_OUTPUT = '';
 	}
 	public function __tostring( )
@@ -19,6 +18,18 @@ class page extends pageModel {
 		}
 		$this->_tplManager->assign( 'page', $this->_PAGE );
 		$this->_tplManager->draw( 'singlepage' );
+
+		// lang
+		//
+		$page = explode('.',$var);
+		$returned = array();
+		foreach($this->_languages as $k=>$l) {
+			$imploded = implode('.', array($k,$page[1],$page[2]));
+			if ($k!==LANG && is_file( ETC.DS.PAGE.DS.$imploded) ) {
+				$returned[$k] = $imploded;
+			}
+		}
+		return $returned;
 	}
 }
 
